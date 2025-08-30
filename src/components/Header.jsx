@@ -1,54 +1,27 @@
-import React from 'react';
-import { Twitter, Rocket, Menu } from 'lucide-react';
+import { Rocket } from "lucide-react";
 
 export default function Header() {
-  const [open, setOpen] = React.useState(false);
-
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-white/5 bg-neutral-950/70 backdrop-blur">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4">
+    <header className="sticky top-0 z-40 backdrop-blur supports-[backdrop-filter]:bg-white/5 border-b border-white/10">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         <a href="#" className="flex items-center gap-2">
-          <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-sky-500 to-indigo-500">
+          <span className="inline-flex h-8 w-8 items-center justify-center rounded-md bg-gradient-to-br from-sky-500 to-cyan-400 text-black">
             <Rocket className="h-5 w-5" />
-          </div>
-          <div className="flex flex-col leading-tight">
-            <span className="text-sm font-semibold tracking-wide text-white">AeroTweet</span>
-            <span className="text-[11px] text-white/60">Twitter Automation</span>
-          </div>
+          </span>
+          <span className="font-semibold tracking-tight">Twistr</span>
         </a>
-
-        <nav className="hidden items-center gap-8 md:flex">
-          <a href="#features" className="text-sm text-white/80 hover:text-white">Features</a>
-          <a href="#pricing" className="text-sm text-white/80 hover:text-white">Pricing</a>
-          <a href="#faq" className="text-sm text-white/80 hover:text-white">FAQ</a>
+        <nav className="hidden md:flex items-center gap-8 text-sm text-white/80">
+          <a href="#features" className="hover:text-white transition">Features</a>
+          <a href="#how" className="hover:text-white transition">How it works</a>
+          <a href="#pricing" className="hover:text-white transition">Pricing</a>
         </nav>
-
-        <div className="hidden items-center gap-3 md:flex">
-          <a href="#" className="text-sm text-white/80 hover:text-white">Sign in</a>
-          <a href="#" className="inline-flex items-center gap-2 rounded-lg bg-white px-4 py-2 text-sm font-medium text-neutral-900 transition hover:bg-white/90">
-            <Twitter className="h-4 w-4 text-sky-500" />
-            Sign in with Twitter
+        <div className="flex items-center gap-3">
+          <a href="#" className="hidden sm:inline-flex text-sm px-3 h-9 items-center rounded-md border border-white/15 hover:border-white/30 transition">Docs</a>
+          <a href="#" className="inline-flex text-sm px-4 h-9 items-center rounded-md bg-gradient-to-r from-sky-500 to-cyan-400 text-black font-medium shadow-[0_0_0_1px_#ffffff20_inset] hover:brightness-110 transition">
+            Sign in with X
           </a>
         </div>
-
-        <button onClick={() => setOpen((v) => !v)} className="inline-flex items-center justify-center rounded-lg border border-white/10 p-2 text-white md:hidden">
-          <Menu className="h-5 w-5" />
-        </button>
       </div>
-
-      {open && (
-        <div className="border-t border-white/5 px-4 py-3 md:hidden">
-          <div className="flex flex-col gap-3">
-            <a href="#features" className="text-sm text-white/80 hover:text-white">Features</a>
-            <a href="#pricing" className="text-sm text-white/80 hover:text-white">Pricing</a>
-            <a href="#faq" className="text-sm text-white/80 hover:text-white">FAQ</a>
-            <a href="#" className="mt-2 inline-flex items-center justify-center gap-2 rounded-lg bg-white px-4 py-2 text-sm font-medium text-neutral-900">
-              <Twitter className="h-4 w-4 text-sky-500" />
-              Sign in with Twitter
-            </a>
-          </div>
-        </div>
-      )}
     </header>
   );
 }
